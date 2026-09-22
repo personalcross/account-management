@@ -3,8 +3,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailInput = document.getElementById("account-management-email");
     const errorElement = document.querySelector(".error");
 
+    function showMessage(message, type = "error") {
+
+        errorElement.textContent = message;
+
+        errorElement.classList.remove(
+            "red-text",
+            "green-text"
+        );
+
+        errorElement.classList.add(
+            type === "success"
+                ? "green-text"
+                : "red-text"
+        );
+
+    }
+
     manageForm.addEventListener("submit", async (event) => {
         event.preventDefault();
+        showMessage("");
 
         const email = emailInput.value.trim();
         errorElement.textContent = "";
@@ -18,14 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         doc.ref.update({ role: 'admin' });
                     });
                     manageForm.reset();
-                    manageForm.querySelector('.error').innerHTML = '';
-                    M.Modal.getInstance(document.querySelector('#modal-manage-account')).close();
-                    M.toast({ html: 'Administrador adicionado com sucesso!', classes: 'green' });
+                    showMessage(
+                        "usuário atualizado com sucesso.",
+                        "success"
+                    );
+                   
                 } else {
-                    manageForm.querySelector('.error').innerHTML = 'Nenhum usuário encontrado com esse email.';
+                    showMessage(
+                        "Nenhum usuário encontrado com esse email."
+                    );
                 }
             })
             .catch(err => {
+                showMessage(
+                    "Não foi possível atualizar o usuário."
+                );
                 errorElement.textContent = "Não foi possível atualizar o usuário";
             });
     });
