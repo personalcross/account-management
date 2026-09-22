@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://personalcross.github.io/assets/components/custom-header.css">
     <link rel="stylesheet" href="https://personalcross.github.io/assets/components/custom-nav.css">
     <link rel="stylesheet" href="https://personalcross.github.io/assets/components/hamburger.css">
+    <link rel="stylesheet" href="https://personalcross.github.io/assets/components/settings.css">
     <link rel="stylesheet" href="./style.css">
 
     <!-- must be the last one -->
@@ -46,6 +47,24 @@
     </header>
 
     <main>
+        <!-- Settings Sidebar -->
+        <aside class="settings-sidebar">
+            <button class="close-settings">X</button>
+            <div class="settings-options">
+                <button id="btn-login" class="guest-only">Entrar</button>
+                <button id="btn-signup" class="guest-only">Registrar</button>
+
+                <button id="btn-gym" class="admin-only">Academia</button>
+                <button id="btn-customers" class="admin-only">Clientes</button>
+                <button id="btn-exercises" class="admin-only">Exercícios</button>
+                <button id="btn-prescriptions" class="admin-only">Prescrições</button>
+                <button id="btn-workouts" class="admin-only">Treinos</button>
+
+                <hr class="admin-only" />
+                <button id="btn-manage-accounts" class="admin-only">Gestão de Contas</button>
+                <button id="btn-logout" class="logged-only">Sair</button>
+            </div>
+        </aside>
         <section>
             <h4>Tornar Administrador</h4>
             <form id="account-management-form">
