@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     manageForm.reset();
                     showMessage(
-                        "usuário atualizado com sucesso.",
+                        "Usuário atualizado com sucesso.",
                         "success"
                     );
                    
